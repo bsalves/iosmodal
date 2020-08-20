@@ -29,6 +29,8 @@
 		395129F924EEF4FD003A189F /* FilterCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395129F824EEF4FD003A189F /* FilterCollectionView.xib */; };
 		395129FC24EEF58C003A189F /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395129FA24EEF58C003A189F /* FilterCollectionViewCell.swift */; };
 		395129FD24EEF58C003A189F /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395129FB24EEF58C003A189F /* FilterCollectionViewCell.xib */; };
+		39512A0624EF28EB003A189F /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A0524EF28EB003A189F /* String+Localizable.swift */; };
+		39512A0924EF29E2003A189F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39512A0824EF29E2003A189F /* Localizable.strings */; };
 		395ED39824EB210D007FCF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39724EB210D007FCF10 /* AppDelegate.swift */; };
 		395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39924EB210D007FCF10 /* SceneDelegate.swift */; };
 		395ED39C24EB210D007FCF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39B24EB210D007FCF10 /* ViewController.swift */; };
@@ -97,6 +99,8 @@
 		395129F824EEF4FD003A189F /* FilterCollectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionView.xib; sourceTree = "<group>"; };
 		395129FA24EEF58C003A189F /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		395129FB24EEF58C003A189F /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
+		39512A0524EF28EB003A189F /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		39512A0824EF29E2003A189F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		395ED39424EB210D007FCF10 /* Modal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		395ED39724EB210D007FCF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		395ED39924EB210D007FCF10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				395129EB24EED755003A189F /* Observables.swift */,
+				39512A0524EF28EB003A189F /* String+Localizable.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -197,6 +202,14 @@
 				395129FB24EEF58C003A189F /* FilterCollectionViewCell.xib */,
 			);
 			path = FilterView;
+			sourceTree = "<group>";
+		};
+		39512A0724EF29CB003A189F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39512A0824EF29E2003A189F /* Localizable.strings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		395ED38B24EB210D007FCF10 = {
@@ -224,6 +237,7 @@
 		395ED39624EB210D007FCF10 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				39512A0724EF29CB003A189F /* Resources */,
 				395129EA24EED743003A189F /* Helpers */,
 				39BDC61B24EB218C00DA3E44 /* Modules */,
 				395ED39724EB210D007FCF10 /* AppDelegate.swift */,
@@ -373,6 +387,7 @@
 				395ED3A424EB210E007FCF10 /* LaunchScreen.storyboard in Resources */,
 				395129FD24EEF58C003A189F /* FilterCollectionViewCell.xib in Resources */,
 				395129D724EEC406003A189F /* Main.storyboard in Resources */,
+				39512A0924EF29E2003A189F /* Localizable.strings in Resources */,
 				395ED3A124EB210E007FCF10 /* Assets.xcassets in Resources */,
 				395129DC24EEC804003A189F /* MainViewController.xib in Resources */,
 				395129E224EECA8F003A189F /* ListTableViewCell.xib in Resources */,
@@ -412,6 +427,7 @@
 				395129DB24EEC804003A189F /* MainViewController.swift in Sources */,
 				395129E124EECA8F003A189F /* ListTableViewCell.swift in Sources */,
 				395129E924EED337003A189F /* MainViewModel.swift in Sources */,
+				39512A0624EF28EB003A189F /* String+Localizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
