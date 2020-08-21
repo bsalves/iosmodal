@@ -14,8 +14,16 @@ class MainViewModel {
     
     private(set) var data = BehaviorRelay<[String]>(value: [])
     
+    var filters = BehaviorRelay<[String]>(value: [])
+    
+    private var bag = DisposeBag()
+    var filterViewModel = FilterViewModel()
+    
     init() {
         fetchData()
+        filterViewModel.filtersSelected.subscribe(onNext: { [unowned self] filter in
+            self.filters.accept(filter)
+        }).disposed(by: bag)
     }
     
     func fetchData() {
@@ -26,12 +34,6 @@ class MainViewModel {
             }
             self?.data.accept(items)
         }
-        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
-            var items: [String] = self?.data.value ?? []
-            for n in 4...10 {
-                items.append("item \(n)")
-            }
-            self?.data.accept(items)
-        }
     }
+    
 }

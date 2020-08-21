@@ -30,7 +30,15 @@
 		395129FC24EEF58C003A189F /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395129FA24EEF58C003A189F /* FilterCollectionViewCell.swift */; };
 		395129FD24EEF58C003A189F /* FilterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 395129FB24EEF58C003A189F /* FilterCollectionViewCell.xib */; };
 		39512A0624EF28EB003A189F /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A0524EF28EB003A189F /* String+Localizable.swift */; };
-		39512A0924EF29E2003A189F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39512A0824EF29E2003A189F /* Localizable.strings */; };
+		39512A0A24EF2A9D003A189F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39512A0C24EF2A9D003A189F /* Localizable.strings */; };
+		39512A1224EF2D8E003A189F /* GitHubWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1124EF2D8E003A189F /* GitHubWorker.swift */; };
+		39512A1424EF2DB4003A189F /* RemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1324EF2DB4003A189F /* RemoteWorker.swift */; };
+		39512A1624EF2E11003A189F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1524EF2E11003A189F /* ApiManager.swift */; };
+		39512A1A24EF4C0A003A189F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1824EF4C0A003A189F /* FilterViewController.swift */; };
+		39512A1B24EF4C0A003A189F /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39512A1924EF4C0A003A189F /* FilterViewController.xib */; };
+		39512A1D24EF4F69003A189F /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1C24EF4F69003A189F /* FilterViewModel.swift */; };
+		39512A2024EF55C9003A189F /* FilterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1E24EF55C9003A189F /* FilterTableViewCell.swift */; };
+		39512A2124EF55C9003A189F /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39512A1F24EF55C9003A189F /* FilterTableViewCell.xib */; };
 		395ED39824EB210D007FCF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39724EB210D007FCF10 /* AppDelegate.swift */; };
 		395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39924EB210D007FCF10 /* SceneDelegate.swift */; };
 		395ED39C24EB210D007FCF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39B24EB210D007FCF10 /* ViewController.swift */; };
@@ -100,7 +108,16 @@
 		395129FA24EEF58C003A189F /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		395129FB24EEF58C003A189F /* FilterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterCollectionViewCell.xib; sourceTree = "<group>"; };
 		39512A0524EF28EB003A189F /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
-		39512A0824EF29E2003A189F /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		39512A0B24EF2A9D003A189F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		39512A0D24EF2AC7003A189F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		39512A1124EF2D8E003A189F /* GitHubWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubWorker.swift; sourceTree = "<group>"; };
+		39512A1324EF2DB4003A189F /* RemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteWorker.swift; sourceTree = "<group>"; };
+		39512A1524EF2E11003A189F /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		39512A1824EF4C0A003A189F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		39512A1924EF4C0A003A189F /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
+		39512A1C24EF4F69003A189F /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		39512A1E24EF55C9003A189F /* FilterTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterTableViewCell.swift; sourceTree = "<group>"; };
+		39512A1F24EF55C9003A189F /* FilterTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterTableViewCell.xib; sourceTree = "<group>"; };
 		395ED39424EB210D007FCF10 /* Modal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		395ED39724EB210D007FCF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		395ED39924EB210D007FCF10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,9 +224,31 @@
 		39512A0724EF29CB003A189F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				39512A0824EF29E2003A189F /* Localizable.strings */,
+				39512A0C24EF2A9D003A189F /* Localizable.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		39512A1024EF2D77003A189F /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+				39512A1124EF2D8E003A189F /* GitHubWorker.swift */,
+				39512A1324EF2DB4003A189F /* RemoteWorker.swift */,
+				39512A1524EF2E11003A189F /* ApiManager.swift */,
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		39512A1724EF4BF0003A189F /* FilterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39512A1824EF4C0A003A189F /* FilterViewController.swift */,
+				39512A1924EF4C0A003A189F /* FilterViewController.xib */,
+				39512A1C24EF4F69003A189F /* FilterViewModel.swift */,
+				39512A1E24EF55C9003A189F /* FilterTableViewCell.swift */,
+				39512A1F24EF55C9003A189F /* FilterTableViewCell.xib */,
+			);
+			path = FilterViewController;
 			sourceTree = "<group>";
 		};
 		395ED38B24EB210D007FCF10 = {
@@ -237,6 +276,7 @@
 		395ED39624EB210D007FCF10 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				39512A1024EF2D77003A189F /* Workers */,
 				39512A0724EF29CB003A189F /* Resources */,
 				395129EA24EED743003A189F /* Helpers */,
 				39BDC61B24EB218C00DA3E44 /* Modules */,
@@ -271,6 +311,7 @@
 		39BDC61B24EB218C00DA3E44 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				39512A1724EF4BF0003A189F /* FilterViewController */,
 				395129E324EECD61003A189F /* DetailsViewController */,
 				395129D824EEC7DC003A189F /* MainViewController */,
 				395129C324EDA1C4003A189F /* MainNavigationController.swift */,
@@ -365,6 +406,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"pt-BR",
 			);
 			mainGroup = 395ED38B24EB210D007FCF10;
 			productRefGroup = 395ED39524EB210D007FCF10 /* Products */;
@@ -383,14 +425,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39512A1B24EF4C0A003A189F /* FilterViewController.xib in Resources */,
 				395129F924EEF4FD003A189F /* FilterCollectionView.xib in Resources */,
 				395ED3A424EB210E007FCF10 /* LaunchScreen.storyboard in Resources */,
 				395129FD24EEF58C003A189F /* FilterCollectionViewCell.xib in Resources */,
 				395129D724EEC406003A189F /* Main.storyboard in Resources */,
-				39512A0924EF29E2003A189F /* Localizable.strings in Resources */,
+				39512A0A24EF2A9D003A189F /* Localizable.strings in Resources */,
 				395ED3A124EB210E007FCF10 /* Assets.xcassets in Resources */,
 				395129DC24EEC804003A189F /* MainViewController.xib in Resources */,
 				395129E224EECA8F003A189F /* ListTableViewCell.xib in Resources */,
+				39512A2124EF55C9003A189F /* FilterTableViewCell.xib in Resources */,
 				395129E724EECD7B003A189F /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,13 +460,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39512A1D24EF4F69003A189F /* FilterViewModel.swift in Sources */,
+				39512A1224EF2D8E003A189F /* GitHubWorker.swift in Sources */,
+				39512A1424EF2DB4003A189F /* RemoteWorker.swift in Sources */,
 				395129C524EDA1C4003A189F /* MainNavigationController.swift in Sources */,
 				395ED39C24EB210D007FCF10 /* ViewController.swift in Sources */,
 				395ED39824EB210D007FCF10 /* AppDelegate.swift in Sources */,
 				395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */,
 				395129FC24EEF58C003A189F /* FilterCollectionViewCell.swift in Sources */,
+				39512A1624EF2E11003A189F /* ApiManager.swift in Sources */,
+				39512A2024EF55C9003A189F /* FilterTableViewCell.swift in Sources */,
 				395129E624EECD7B003A189F /* DetailsViewController.swift in Sources */,
 				395129EC24EED755003A189F /* Observables.swift in Sources */,
+				39512A1A24EF4C0A003A189F /* FilterViewController.swift in Sources */,
 				395129F724EEF4F1003A189F /* FilterCollectionView.swift in Sources */,
 				395129DB24EEC804003A189F /* MainViewController.swift in Sources */,
 				395129E124EECA8F003A189F /* ListTableViewCell.swift in Sources */,
@@ -463,6 +513,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		39512A0C24EF2A9D003A189F /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39512A0B24EF2A9D003A189F /* en */,
+				39512A0D24EF2AC7003A189F /* pt-BR */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		395ED3A224EB210E007FCF10 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -478,6 +537,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -538,6 +598,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

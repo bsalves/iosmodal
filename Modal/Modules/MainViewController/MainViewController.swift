@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var input: UITextField! {
         didSet {
             input.delegate = self
+            input.placeholder = String.localize("search_txt_field_placeholder")
         }
     }
     @IBOutlet weak var tableView: UITableView! {
@@ -32,17 +33,22 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "MainViewController"
+        navigationController?.navigationBar.topItem?.title = String.localize("main_view_title")
         setup()
     }
     
     private func setup() {
         prepareTableView()
         prepareObservables()
+        prepareNavigationBar()
         
         Observables.keyboardHeight().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (value) in
             self?.view.frame = CGRect(x: 0, y: 0, width: self?.view.frame.width ?? 0, height: self?.view.frame.width ?? 0 - value)
         }).disposed(by: bag)
+    }
+    
+    private func prepareNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openFilter))
     }
     
     private func prepareTableView() {
@@ -61,6 +67,10 @@ class MainViewController: UIViewController {
             self.items.accept(value)
         }).disposed(by: bag)
         
+        viewModel.filters.subscribe(onNext: { [unowned self] filters in
+            self.currentFilters.filters.accept(filters)
+        }).disposed(by: bag)
+        
         currentFilters.filters.asObservable().subscribe(onNext: { [unowned self] filters in
             self.currentFilterHeightConstraint.constant = (self.currentFilters.filters.value.isEmpty) ? 0 : 44
             self.view.layoutIfNeeded()
@@ -70,6 +80,13 @@ class MainViewController: UIViewController {
     private func pushDetailsViewController(_ viewValue: String) {
         let detailsViewController = DetailsViewController()
         navigationController?.pushViewController(detailsViewController, animated: true)
+    }
+    
+    @objc private func openFilter() {
+        let filterViewController = FilterViewController()
+        filterViewController.viewModel = viewModel.filterViewModel
+        let filterNavigarionController = UINavigationController(rootViewController: filterViewController)
+        present(filterNavigarionController, animated: true, completion: nil)
     }
 }
 
@@ -81,6 +98,9 @@ extension MainViewController: UITableViewDelegate {
 
 extension MainViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        // Transfor in search trigger
+        
         textField.resignFirstResponder()
         if let newText = textField.text {
             var values = items.value

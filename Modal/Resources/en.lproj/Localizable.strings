@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Modal
+
+  Created by Bruno Alves on 20/08/20.
+  Copyright © 2020 Bruno Alves. All rights reserved.
+*/
+
+// MARK: - Main View Controller
+
+"main_view_title" = "Git";
+"search_txt_field_placeholder" = "Search by name...";
+
+// MARK: - Filter View Controlller
+
+"search_view_controller_title" = "Filter by";

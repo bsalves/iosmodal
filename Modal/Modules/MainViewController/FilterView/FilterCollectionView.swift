@@ -17,7 +17,7 @@ class FilterCollectionView: UIView {
     
     private var bag = DisposeBag()
     private var cellIdentifier = "cell"
-    var filters = BehaviorRelay<[String]>(value: ["Filto 1", "Filtro 2"])
+    var filters = BehaviorRelay<[String]>(value: [])
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,10 +33,6 @@ class FilterCollectionView: UIView {
         super.awakeFromNib()
         collectionView.register(UINib(nibName: String(describing: FilterCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         setupObservables()
-        
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { _ in
-            self.filters.accept([])
-        }
     }
     
     private func setupObservables() {
