@@ -47,6 +47,7 @@
 		395ED3A424EB210E007FCF10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 395ED3A224EB210E007FCF10 /* LaunchScreen.storyboard */; };
 		395ED3AF24EB210E007FCF10 /* ModalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED3AE24EB210E007FCF10 /* ModalTests.swift */; };
 		395ED3BA24EB210E007FCF10 /* ModalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED3B924EB210E007FCF10 /* ModalUITests.swift */; };
+		39FAE13624F0AD340088A1F4 /* MainViewController+UITextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39FAE13524F0AD340088A1F4 /* MainViewController+UITextFieldDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		395ED3B524EB210E007FCF10 /* ModalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		395ED3B924EB210E007FCF10 /* ModalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalUITests.swift; sourceTree = "<group>"; };
 		395ED3BB24EB210E007FCF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FAE13524F0AD340088A1F4 /* MainViewController+UITextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MainViewController+UITextFieldDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 				395129DF24EECA8F003A189F /* ListTableViewCell.swift */,
 				395129E024EECA8F003A189F /* ListTableViewCell.xib */,
 				395129E824EED337003A189F /* MainViewModel.swift */,
+				39FAE13524F0AD340088A1F4 /* MainViewController+UITextFieldDelegate.swift */,
 			);
 			path = MainViewController;
 			sourceTree = "<group>";
@@ -463,6 +466,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39FAE13624F0AD340088A1F4 /* MainViewController+UITextFieldDelegate.swift in Sources */,
 				39512A1D24EF4F69003A189F /* FilterViewModel.swift in Sources */,
 				39512A1224EF2D8E003A189F /* GitHubWorker.swift in Sources */,
 				39512A1424EF2DB4003A189F /* RemoteWorker.swift in Sources */,

@@ -18,11 +18,7 @@ class MainViewController: UIViewController {
             input.placeholder = String.localize("search_txt_field_placeholder")
         }
     }
-    @IBOutlet weak var tableView: UITableView! {
-        didSet {
-            tableView.delegate = self
-        }
-    }
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var currentFiltersCollectionView: FilterCollectionView! {
         didSet {
             currentFiltersCollectionView.viewModel = self.viewModel
@@ -32,8 +28,9 @@ class MainViewController: UIViewController {
     
     private var bag = DisposeBag()
     private var cellIdentifier = "cell"
-    private var items = BehaviorRelay<[String]>(value: [])
     private var viewModel = MainViewModel()
+    
+    var items = BehaviorRelay<[String]>(value: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,6 +72,10 @@ class MainViewController: UIViewController {
             self.currentFilterHeightConstraint.constant = (self.viewModel.filterViewModel.filtersSelected.value.isEmpty) ? 0 : 44
             self.view.layoutIfNeeded()
         }).disposed(by: bag)
+        
+        tableView.rx.itemSelected.bind { [unowned self] indexPath in
+            self.pushDetailsViewController(self.items.value[indexPath.row])
+        }.disposed(by: bag)
     }
     
     private func pushDetailsViewController(_ viewValue: String) {
@@ -87,28 +88,5 @@ class MainViewController: UIViewController {
         filterViewController.viewModel = viewModel.filterViewModel
         let filterNavigarionController = UINavigationController(rootViewController: filterViewController)
         present(filterNavigarionController, animated: true, completion: nil)
-    }
-}
-
-extension MainViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        pushDetailsViewController(items.value[indexPath.row])
-    }
-}
-
-extension MainViewController: UITextFieldDelegate {
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        // Transfor in search trigger
-        
-        textField.resignFirstResponder()
-        if let newText = textField.text {
-            var values = items.value
-            values.append(newText)
-            items.accept(values)
-            textField.text = nil
-            textField.becomeFirstResponder()
-        }
-        return true
     }
 }
