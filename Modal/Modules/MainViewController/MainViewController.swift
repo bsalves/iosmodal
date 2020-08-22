@@ -23,7 +23,11 @@ class MainViewController: UIViewController {
             tableView.delegate = self
         }
     }
-    @IBOutlet weak var currentFilters: FilterCollectionView!
+    @IBOutlet weak var currentFiltersCollectionView: FilterCollectionView! {
+        didSet {
+            currentFiltersCollectionView.viewModel = self.viewModel
+        }
+    }
     @IBOutlet weak var currentFilterHeightConstraint: NSLayoutConstraint!
     
     private var bag = DisposeBag()
@@ -67,12 +71,8 @@ class MainViewController: UIViewController {
             self.items.accept(value)
         }).disposed(by: bag)
         
-        viewModel.filters.subscribe(onNext: { [unowned self] filters in
-            self.currentFilters.filters.accept(filters)
-        }).disposed(by: bag)
-        
-        currentFilters.filters.asObservable().subscribe(onNext: { [unowned self] filters in
-            self.currentFilterHeightConstraint.constant = (self.currentFilters.filters.value.isEmpty) ? 0 : 44
+        viewModel.filterViewModel.filtersSelected.bind(onNext: { [unowned self] filters in
+            self.currentFilterHeightConstraint.constant = (self.viewModel.filterViewModel.filtersSelected.value.isEmpty) ? 0 : 44
             self.view.layoutIfNeeded()
         }).disposed(by: bag)
     }

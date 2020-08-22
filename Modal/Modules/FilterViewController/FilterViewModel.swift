@@ -12,6 +12,25 @@ import RxSwift
 
 class FilterViewModel {
     
-    var filtersSelected = BehaviorRelay<[String]>(value: [])
-    var orderBy = BehaviorRelay<String>(value: "")
+    var filtersSelected = BehaviorRelay<[Filter]>(value: [])
+    var orderBy = BehaviorRelay<Sorting>(value: .descending)
+    
+    init(filter: [Filter]) {
+        self.filtersSelected.accept(filter)
+    }
+    
+    // MARK: - Computed properties
+    
+    var filters: BehaviorRelay<[Filter]> {
+//        return [.star, .followers, .date]
+        return BehaviorRelay(value: [.star, .followers, .date])
+    }
+    
+    var order: [Sorting] {
+        return [.ascending, .descending]
+    }
+    
+    var sectionNames: [String] {
+        return ["Filtro","Ordem"]
+    }
 }

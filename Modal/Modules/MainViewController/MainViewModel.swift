@@ -14,16 +14,17 @@ class MainViewModel {
     
     private(set) var data = BehaviorRelay<[String]>(value: [])
     
-    var filters = BehaviorRelay<[String]>(value: [])
+    var filters = BehaviorRelay<[Filter]>(value: [])
     
     private var bag = DisposeBag()
-    var filterViewModel = FilterViewModel()
+    var filterViewModel: FilterViewModel!
     
     init() {
-        fetchData()
-        filterViewModel.filtersSelected.subscribe(onNext: { [unowned self] filter in
+        self.filterViewModel = FilterViewModel(filter: self.filters.value)
+        filterViewModel?.filtersSelected.bind(onNext: { [unowned self] filter in
             self.filters.accept(filter)
         }).disposed(by: bag)
+        fetchData()
     }
     
     func fetchData() {

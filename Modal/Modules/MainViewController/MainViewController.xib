@@ -10,7 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="Modal" customModuleProvider="target">
             <connections>
                 <outlet property="currentFilterHeightConstraint" destination="qES-FJ-hfq" id="1vB-XD-rXh"/>
-                <outlet property="currentFilters" destination="h9e-m4-B4b" id="P1b-Cd-db4"/>
+                <outlet property="currentFiltersCollectionView" destination="h9e-m4-B4b" id="ghI-5H-4PR"/>
                 <outlet property="input" destination="7dO-II-D6S" id="qbV-sp-2Eo"/>
                 <outlet property="tableView" destination="yDY-or-md9" id="bXf-WV-qd0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="7Tc-nh-7K1"/>
@@ -21,35 +21,43 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dO-II-D6S">
-                    <rect key="frame" x="14" y="58" width="386" height="18.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h9e-m4-B4b" customClass="FilterCollectionView" customModule="Modal" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="84.5" width="414" height="88"/>
+                    <rect key="frame" x="14" y="151" width="386" height="88"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="88" id="qES-FJ-hfq"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yDY-or-md9">
-                    <rect key="frame" x="0.0" y="180.5" width="414" height="681.5"/>
+                    <rect key="frame" x="0.0" y="247" width="414" height="615"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="O00-jY-CEm">
+                    <rect key="frame" x="109.5" y="58" width="195" height="32"/>
+                    <segments>
+                        <segment title="Crescente"/>
+                        <segment title="Decrescente"/>
+                    </segments>
+                </segmentedControl>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7dO-II-D6S">
+                    <rect key="frame" x="14" y="103" width="386" height="34"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
-                <constraint firstItem="7dO-II-D6S" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="9fm-b1-sEN"/>
-                <constraint firstItem="h9e-m4-B4b" firstAttribute="top" secondItem="7dO-II-D6S" secondAttribute="bottom" constant="8" id="BH4-Tf-hV7"/>
-                <constraint firstItem="7dO-II-D6S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="14" id="MLm-Zy-bDB"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7dO-II-D6S" secondAttribute="trailing" constant="14" id="Q2Z-br-DKB"/>
+                <constraint firstItem="O00-jY-CEm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="5w3-ZW-rS2"/>
+                <constraint firstItem="O00-jY-CEm" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="14" id="98b-QP-r0Y"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7dO-II-D6S" secondAttribute="trailing" constant="14" id="Dgh-nJ-ZbW"/>
                 <constraint firstItem="yDY-or-md9" firstAttribute="top" secondItem="h9e-m4-B4b" secondAttribute="bottom" constant="8" id="QHU-uK-7yV"/>
+                <constraint firstItem="7dO-II-D6S" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="14" id="cOB-vI-giE"/>
+                <constraint firstItem="7dO-II-D6S" firstAttribute="top" secondItem="O00-jY-CEm" secondAttribute="bottom" constant="14" id="g19-Rg-V27"/>
                 <constraint firstItem="yDY-or-md9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="gQ1-FC-o0K"/>
-                <constraint firstItem="h9e-m4-B4b" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="mWy-nc-kXM"/>
-                <constraint firstItem="h9e-m4-B4b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="tTV-Aw-qfU"/>
+                <constraint firstItem="h9e-m4-B4b" firstAttribute="top" secondItem="7dO-II-D6S" secondAttribute="bottom" constant="14" id="gYx-hd-WZS"/>
+                <constraint firstItem="h9e-m4-B4b" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" constant="-14" id="mWy-nc-kXM"/>
+                <constraint firstItem="h9e-m4-B4b" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="14" id="tTV-Aw-qfU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="yDY-or-md9" secondAttribute="bottom" id="toD-JF-572"/>
-                <constraint firstItem="yDY-or-md9" firstAttribute="top" secondItem="7dO-II-D6S" secondAttribute="bottom" priority="750" constant="104" id="wIe-kX-aBU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="yDY-or-md9" secondAttribute="trailing" id="yvb-gE-p4D"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

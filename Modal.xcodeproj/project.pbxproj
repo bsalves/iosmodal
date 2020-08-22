@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */; };
 		395129B324ED9A35003A189F /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395129AE24ED9A35003A189F /* RxRelay.framework */; };
 		395129B424ED9A35003A189F /* RxRelay.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 395129AE24ED9A35003A189F /* RxRelay.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		395129B524ED9A35003A189F /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395129AF24ED9A35003A189F /* RxCocoa.framework */; };
@@ -83,6 +84,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		3951299E24ED99DC003A189F /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = ../../Desktop/Carthage/Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
 		3951299F24ED99DC003A189F /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = ../../Desktop/Carthage/Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
 		395129A024ED99DC003A189F /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = ../../Desktop/Carthage/Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
@@ -182,7 +184,7 @@
 		395129D824EEC7DC003A189F /* MainViewController */ = {
 			isa = PBXGroup;
 			children = (
-				395129ED24EEEED6003A189F /* FilterView */,
+				395129ED24EEEED6003A189F /* FilterCollectionView */,
 				395129D924EEC804003A189F /* MainViewController.swift */,
 				395129DA24EEC804003A189F /* MainViewController.xib */,
 				395129DF24EECA8F003A189F /* ListTableViewCell.swift */,
@@ -210,7 +212,7 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		395129ED24EEEED6003A189F /* FilterView */ = {
+		395129ED24EEEED6003A189F /* FilterCollectionView */ = {
 			isa = PBXGroup;
 			children = (
 				395129F624EEF4F1003A189F /* FilterCollectionView.swift */,
@@ -218,7 +220,7 @@
 				395129FA24EEF58C003A189F /* FilterCollectionViewCell.swift */,
 				395129FB24EEF58C003A189F /* FilterCollectionViewCell.xib */,
 			);
-			path = FilterView;
+			path = FilterCollectionView;
 			sourceTree = "<group>";
 		};
 		39512A0724EF29CB003A189F /* Resources */ = {
@@ -247,6 +249,7 @@
 				39512A1C24EF4F69003A189F /* FilterViewModel.swift */,
 				39512A1E24EF55C9003A189F /* FilterTableViewCell.swift */,
 				39512A1F24EF55C9003A189F /* FilterTableViewCell.xib */,
+				392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */,
 			);
 			path = FilterViewController;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				395129E624EECD7B003A189F /* DetailsViewController.swift in Sources */,
 				395129EC24EED755003A189F /* Observables.swift in Sources */,
 				39512A1A24EF4C0A003A189F /* FilterViewController.swift in Sources */,
+				392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */,
 				395129F724EEF4F1003A189F /* FilterCollectionView.swift in Sources */,
 				395129DB24EEC804003A189F /* MainViewController.swift in Sources */,
 				395129E124EECA8F003A189F /* ListTableViewCell.swift in Sources */,

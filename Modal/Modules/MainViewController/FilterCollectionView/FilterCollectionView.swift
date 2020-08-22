@@ -17,7 +17,8 @@ class FilterCollectionView: UIView {
     
     private var bag = DisposeBag()
     private var cellIdentifier = "cell"
-    var filters = BehaviorRelay<[String]>(value: [])
+    //var filters = BehaviorRelay<[Filter]>(value: [])
+    var viewModel: MainViewModel?
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,12 +33,19 @@ class FilterCollectionView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(UINib(nibName: String(describing: FilterCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
-        setupObservables()
+        prepareObservables()
     }
     
-    private func setupObservables() {
-        filters.bind(to: collectionView.rx.items(cellIdentifier: cellIdentifier, cellType: FilterCollectionViewCell.self)) { row, item, cell in
-            cell.filterTitle?.text = item
+    private func prepareObservables() {
+        viewModel?.filterViewModel.filtersSelected.bind(to: collectionView.rx.items(cellIdentifier: cellIdentifier, cellType: FilterCollectionViewCell.self)) { row, item, cell in
+            cell.filterTitle?.text = item.describing
+        }.disposed(by: bag)
+        
+        collectionView.rx.itemSelected.bind { [unowned self] indexPath in
+            guard let viewModel = self.viewModel else { return }
+            var newFilters = viewModel.filterViewModel.filtersSelected.value
+            newFilters.remove(at: indexPath.row)
+            self.viewModel?.filterViewModel.filtersSelected.accept(newFilters)
         }.disposed(by: bag)
     }
     
