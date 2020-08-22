@@ -12,7 +12,15 @@ import RxSwift
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var orderSegmentedControll: UISegmentedControl!
+    @IBOutlet weak var orderSegmentedControll: UISegmentedControl! {
+        didSet {
+            for (index, _) in self.viewModel.filterViewModel.order.value.enumerated() {
+                let title = viewModel.filterViewModel.order.value[index].describing
+                orderSegmentedControll.setTitle(String.localize(title), forSegmentAt: index)
+            }
+            
+        }
+    }
     @IBOutlet weak var input: UITextField! {
         didSet {
             input.delegate = self
@@ -51,7 +59,7 @@ class MainViewController: UIViewController {
     }
     
     private func prepareNavigationBar() {
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openFilter))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.localize("main_view_filter_button"), style: .plain, target: self, action: #selector(openFilter))
     }
     
     private func prepareTableView() {
@@ -80,7 +88,7 @@ class MainViewController: UIViewController {
         }.disposed(by: bag)
         
         orderSegmentedControll.rx.selectedSegmentIndex.bind { [unowned self] index in
-            self.viewModel.filterViewModel.orderBy.accept(self.viewModel.filterViewModel.order[index])
+            self.viewModel.filterViewModel.orderBy.accept(self.viewModel.filterViewModel.order.value[index])
         }.disposed(by: bag)
     }
     

@@ -24,7 +24,11 @@ class FilterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.topItem?.title = String.localize("search_view_controller_title")
-        
+        prepareObservables()
+        prepareNavigationBar()
+    }
+    
+    private func prepareObservables() {
         viewModel?.filters.bind(to: self.tableView.rx.items(cellIdentifier: "cell")) { row, item, cell in
             guard let viewModel = self.viewModel else { return }
             cell.textLabel?.text = item.describing
@@ -48,7 +52,20 @@ class FilterViewController: UIViewController {
                 self.viewModel?.filtersSelected.accept(newFilters)
                 self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             }
-            
         }.disposed(by: bag)
+    }
+    
+    private func prepareNavigationBar() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: String.localize("search_view_controller_clear_filter"), style: .done, target: self, action: #selector(clearFilters))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(close))
+    }
+    
+    @objc private func clearFilters() {
+        self.viewModel?.filtersSelected.accept([])
+        tableView.reloadData()
+    }
+    
+    @objc private func close() {
+        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -16,11 +16,11 @@ enum Filter {
     var describing: String {
         switch self {
         case .star:
-            return "Estrelas"
+            return String.localize("filter_star")
         case .followers:
-            return "Seguidores"
+            return String.localize("filter_followers")
         case .date:
-            return "Data"
+            return String.localize("filter_date")
         }
     }
 }
@@ -32,9 +32,9 @@ enum Sorting {
     var describing: String {
         switch self {
         case .ascending:
-            return "Crescente"
+            return String.localize("sort_asc")
         case .descending:
-            return "Decresccente"
+            return String.localize("sort_desc")
         }
     }
 }

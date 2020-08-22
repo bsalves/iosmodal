@@ -10,7 +10,20 @@
 
 "main_view_title" = "Git";
 "search_txt_field_placeholder" = "Buscar por nome...";
+"main_view_filter_button" = "Filtrar";
 
 // MARK: - Filter View Controlller
 
 "search_view_controller_title" = "Filtrar por";
+"search_view_controller_clear_filter" = "Limpar filtros";
+
+// MARK: - Filter Options
+
+"filter_star" = "Estrelas";
+"filter_followers" = "Seguidores";
+"filter_date" = "Data";
+
+// MARK: - Sort Options
+
+"sort_asc" = "Crescente";
+"sort_desc" = "Decrescente";
