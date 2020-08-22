@@ -12,6 +12,7 @@
                 <outlet property="currentFilterHeightConstraint" destination="qES-FJ-hfq" id="1vB-XD-rXh"/>
                 <outlet property="currentFiltersCollectionView" destination="h9e-m4-B4b" id="ghI-5H-4PR"/>
                 <outlet property="input" destination="7dO-II-D6S" id="qbV-sp-2Eo"/>
+                <outlet property="orderSegmentedControll" destination="O00-jY-CEm" id="cCa-Fh-IoY"/>
                 <outlet property="tableView" destination="yDY-or-md9" id="bXf-WV-qd0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="7Tc-nh-7K1"/>
             </connections>

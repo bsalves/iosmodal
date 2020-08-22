@@ -12,6 +12,7 @@ import RxSwift
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var orderSegmentedControll: UISegmentedControl!
     @IBOutlet weak var input: UITextField! {
         didSet {
             input.delegate = self
@@ -30,6 +31,7 @@ class MainViewController: UIViewController {
     private var cellIdentifier = "cell"
     private var viewModel = MainViewModel()
     
+    // TODO: Push data from network
     var items = BehaviorRelay<[String]>(value: [])
     
     override func viewDidLoad() {
@@ -64,7 +66,7 @@ class MainViewController: UIViewController {
             cell.selectedBackgroundView = backgroundView
         }.disposed(by: bag)
         
-        viewModel.data.subscribe(onNext: { value in
+        viewModel.data.bind(onNext: { value in
             self.items.accept(value)
         }).disposed(by: bag)
         
@@ -75,6 +77,10 @@ class MainViewController: UIViewController {
         
         tableView.rx.itemSelected.bind { [unowned self] indexPath in
             self.pushDetailsViewController(self.items.value[indexPath.row])
+        }.disposed(by: bag)
+        
+        orderSegmentedControll.rx.selectedSegmentIndex.bind { [unowned self] index in
+            self.viewModel.filterViewModel.orderBy.accept(self.viewModel.filterViewModel.order[index])
         }.disposed(by: bag)
     }
     
