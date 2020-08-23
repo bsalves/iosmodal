@@ -19,7 +19,6 @@ extension MainViewController: UITextFieldDelegate {
             values.append(newText)
             items.accept(values)
             textField.text = nil
-            textField.becomeFirstResponder()
         }
         return true
     }

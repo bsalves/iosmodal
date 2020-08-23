@@ -27,7 +27,11 @@ class MainViewController: UIViewController {
             input.placeholder = String.localize("search_txt_field_placeholder")
         }
     }
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView! {
+        didSet {
+            tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        }
+    }
     @IBOutlet weak var currentFiltersCollectionView: FilterCollectionView! {
         didSet {
             currentFiltersCollectionView.viewModel = self.viewModel
@@ -54,7 +58,7 @@ class MainViewController: UIViewController {
         prepareNavigationBar()
         
         Observables.keyboardHeight().observeOn(MainScheduler.instance).subscribe(onNext: { [weak self] (value) in
-            self?.view.frame = CGRect(x: 0, y: 0, width: self?.view.frame.width ?? 0, height: self?.view.frame.width ?? 0 - value)
+            self?.view.frame = CGRect(x: 0, y: 0, width: self?.view.frame.width ?? 0, height: self?.view.frame.height ?? 0 - value)
         }).disposed(by: bag)
     }
     
@@ -63,16 +67,21 @@ class MainViewController: UIViewController {
     }
     
     private func prepareTableView() {
-        tableView.register(ListTableViewCell.self, forCellReuseIdentifier: cellIdentifier)
+        tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
     }
 
     private func prepareObservables() {
-        items.bind(to: tableView.rx.items(cellIdentifier: cellIdentifier, cellType: ListTableViewCell.self)) { row, item, cell in
-            cell.textLabel?.text = item
-            let backgroundView = UIView()
-            backgroundView.backgroundColor = .clear
-            cell.selectedBackgroundView = backgroundView
-        }.disposed(by: bag)
+        items.bind(to: tableView.rx.items) { [unowned self] table, index, element in
+            if let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? ListTableViewCell {
+                cell.title.text = element
+                let selectedView = UIView()
+                selectedView.backgroundColor = .clear
+                cell.selectedBackgroundView = selectedView
+                return cell
+            }
+            return UITableViewCell(style: .default, reuseIdentifier: self.cellIdentifier)
+        }
+        .disposed(by: bag)
         
         viewModel.data.bind(onNext: { value in
             self.items.accept(value)
