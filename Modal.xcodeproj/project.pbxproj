@@ -35,7 +35,6 @@
 		39512A0624EF28EB003A189F /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A0524EF28EB003A189F /* String+Localizable.swift */; };
 		39512A0A24EF2A9D003A189F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39512A0C24EF2A9D003A189F /* Localizable.strings */; };
 		39512A1224EF2D8E003A189F /* GitHubWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1124EF2D8E003A189F /* GitHubWorker.swift */; };
-		39512A1424EF2DB4003A189F /* RemoteWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1324EF2DB4003A189F /* RemoteWorker.swift */; };
 		39512A1624EF2E11003A189F /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1524EF2E11003A189F /* ApiManager.swift */; };
 		39512A1A24EF4C0A003A189F /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39512A1824EF4C0A003A189F /* FilterViewController.swift */; };
 		39512A1B24EF4C0A003A189F /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39512A1924EF4C0A003A189F /* FilterViewController.xib */; };
@@ -129,7 +128,6 @@
 		39512A0B24EF2A9D003A189F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		39512A0D24EF2AC7003A189F /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		39512A1124EF2D8E003A189F /* GitHubWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubWorker.swift; sourceTree = "<group>"; };
-		39512A1324EF2DB4003A189F /* RemoteWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteWorker.swift; sourceTree = "<group>"; };
 		39512A1524EF2E11003A189F /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		39512A1824EF4C0A003A189F /* FilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		39512A1924EF4C0A003A189F /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			isa = PBXGroup;
 			children = (
 				39512A1124EF2D8E003A189F /* GitHubWorker.swift */,
-				39512A1324EF2DB4003A189F /* RemoteWorker.swift */,
 				39512A1524EF2E11003A189F /* ApiManager.swift */,
 			);
 			path = Workers;
@@ -504,7 +501,6 @@
 				39FAE13624F0AD340088A1F4 /* MainViewController+UITextFieldDelegate.swift in Sources */,
 				39512A1D24EF4F69003A189F /* FilterViewModel.swift in Sources */,
 				39512A1224EF2D8E003A189F /* GitHubWorker.swift in Sources */,
-				39512A1424EF2DB4003A189F /* RemoteWorker.swift in Sources */,
 				395129C524EDA1C4003A189F /* MainNavigationController.swift in Sources */,
 				395ED39824EB210D007FCF10 /* AppDelegate.swift in Sources */,
 				395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */,
