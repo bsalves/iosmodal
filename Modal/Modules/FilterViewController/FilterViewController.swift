@@ -47,9 +47,12 @@ class FilterViewController: UIViewController {
                 self.viewModel?.filtersSelected.accept(newFilters)
                 self.tableView.cellForRow(at: indexPath)?.accessoryType = .none
             } else {
-                var newFilters = viewModel.filtersSelected.value
+                var newFilters: [Filter] = []
                 newFilters.append(viewModel.filters.value[indexPath.row])
                 self.viewModel?.filtersSelected.accept(newFilters)
+                for cell in self.tableView.visibleCells {
+                    cell.accessoryType = .none
+                }
                 self.tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             }
         }.disposed(by: bag)

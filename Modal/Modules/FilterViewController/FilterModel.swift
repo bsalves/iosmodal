@@ -23,6 +23,17 @@ enum Filter {
             return String.localize("filter_date")
         }
     }
+    
+    var key: String {
+        switch self {
+        case .star:
+            return "star"
+        case .followers:
+            return "forks"
+        case .date:
+            return "updated"
+        }
+    }
 }
 
 enum Sorting {
@@ -35,6 +46,15 @@ enum Sorting {
             return String.localize("sort_asc")
         case .descending:
             return String.localize("sort_desc")
+        }
+    }
+    
+    var key: String {
+        switch self {
+        case .ascending:
+            return "asc"
+        case .descending:
+            return "desc"
         }
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3907721F24F2B81F006CD74F /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907721E24F2B81F006CD74F /* Search.swift */; };
+		3907722124F2E5E2006CD74F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907722024F2E5E2006CD74F /* Repository.swift */; };
 		392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */; };
 		3947F07524F2183D001FDE57 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3947F07324F2183D001FDE57 /* ListTableViewCell.swift */; };
 		3947F07624F2183D001FDE57 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3947F07424F2183D001FDE57 /* ListTableViewCell.xib */; };
@@ -86,6 +87,7 @@
 
 /* Begin PBXFileReference section */
 		3907721E24F2B81F006CD74F /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		3907722024F2E5E2006CD74F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		3947F07324F2183D001FDE57 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		3947F07424F2183D001FDE57 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				3907721E24F2B81F006CD74F /* Search.swift */,
+				3907722024F2E5E2006CD74F /* Repository.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				395129E624EECD7B003A189F /* DetailsViewController.swift in Sources */,
 				395129EC24EED755003A189F /* Observables.swift in Sources */,
 				39512A1A24EF4C0A003A189F /* FilterViewController.swift in Sources */,
+				3907722124F2E5E2006CD74F /* Repository.swift in Sources */,
 				392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */,
 				395129F724EEF4F1003A189F /* FilterCollectionView.swift in Sources */,
 				395129DB24EEC804003A189F /* MainViewController.swift in Sources */,

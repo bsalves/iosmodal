@@ -18,21 +18,24 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
-    func setupCell(with item: Item) {
-        self.title.text = item.fullName
+    override func prepareForReuse() {
+        super.layoutSubviews()
+        self.avatarImage.image = nil
+    }
+    
+    func setupCell(with item: MainViewModel.MainViewItem) {
+        self.title.text = item.title
         let selectedView = UIView()
         selectedView.backgroundColor = .clear
         self.selectedBackgroundView = selectedView
         
-        self.followersLabel.text = String(item.watchersCount)
-        self.forksLabel.text = String(item.forksCount)
-        
-        self.dateLabel.text = item.createdDateTime
-        
-        self.stars.text = String(item.stargazersCount)
+        self.followersLabel.text = item.followers
+        self.forksLabel.text = item.forks
+        self.dateLabel.text = item.date
+        self.stars.text = item.stars
         
         DispatchQueue.global().async {
-            guard let url = URL(string: item.owner.avatarURL) else { return }
+            guard let url = URL(string: item.imageUrl) else { return }
             let imageData = try? NSData(contentsOf: url, options: .dataReadingMapped) as Data
             DispatchQueue.main.async {
                 self.avatarImage.image = UIImage(data: imageData ?? Data())

@@ -26,6 +26,6 @@ class FilterViewModel {
     }
     
     var order: BehaviorRelay<[Sorting]> {
-        return BehaviorRelay(value: [.ascending, .descending])
+        return BehaviorRelay(value: [.descending, .ascending])
     }
 }

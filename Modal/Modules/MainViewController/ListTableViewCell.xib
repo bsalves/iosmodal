@@ -30,16 +30,16 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfo-iH-Hn9">
-                                        <rect key="frame" x="84" y="30" width="401.5" height="24"/>
+                                        <rect key="frame" x="84" y="30" width="45" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="X4x-jE-x3m">
-                                        <rect key="frame" x="518" y="22" width="134" height="40.5"/>
+                                        <rect key="frame" x="610" y="22" width="42" height="40.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Stars" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DO9-KH-qGi">
-                                                <rect key="frame" x="102.5" y="0.0" width="31.5" height="16"/>
+                                                <rect key="frame" x="10.5" y="0.0" width="31.5" height="16"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="16" id="9qS-vL-av0"/>
                                                 </constraints>
@@ -47,8 +47,8 @@
                                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45o-n9-jBL">
-                                                <rect key="frame" x="0.0" y="20" width="134" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45o-n9-jBL">
+                                                <rect key="frame" x="0.0" y="20" width="42" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20.5" id="jSf-VJ-tmv"/>
                                                 </constraints>
@@ -62,16 +62,14 @@
                                 <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="Cfo-iH-Hn9" firstAttribute="leading" secondItem="IcD-PD-KWc" secondAttribute="trailing" constant="17" id="0GB-dM-5kb"/>
-                                    <constraint firstItem="X4x-jE-x3m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cfo-iH-Hn9" secondAttribute="trailing" constant="17" id="0xh-eq-7Qg"/>
+                                    <constraint firstItem="X4x-jE-x3m" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cfo-iH-Hn9" secondAttribute="trailing" constant="8" id="0xh-eq-7Qg"/>
                                     <constraint firstItem="X4x-jE-x3m" firstAttribute="centerY" secondItem="jB8-bR-8sO" secondAttribute="centerY" id="4bW-gA-VYB"/>
                                     <constraint firstAttribute="trailing" secondItem="X4x-jE-x3m" secondAttribute="trailing" constant="17" id="AqG-MD-vgb"/>
                                     <constraint firstItem="IcD-PD-KWc" firstAttribute="top" secondItem="jB8-bR-8sO" secondAttribute="top" constant="17" id="RqZ-XJ-oDi"/>
                                     <constraint firstAttribute="height" constant="84" id="XBf-en-5kY"/>
                                     <constraint firstItem="Cfo-iH-Hn9" firstAttribute="centerY" secondItem="jB8-bR-8sO" secondAttribute="centerY" id="blj-Fa-zNo"/>
                                     <constraint firstAttribute="bottom" secondItem="IcD-PD-KWc" secondAttribute="bottom" constant="17" id="eZ7-ng-7w0"/>
-                                    <constraint firstItem="Cfo-iH-Hn9" firstAttribute="width" secondItem="jB8-bR-8sO" secondAttribute="width" multiplier="0.6" id="g0v-FZ-zrw"/>
                                     <constraint firstItem="IcD-PD-KWc" firstAttribute="leading" secondItem="jB8-bR-8sO" secondAttribute="leading" constant="17" id="rKN-nb-kjX"/>
-                                    <constraint firstItem="45o-n9-jBL" firstAttribute="width" secondItem="jB8-bR-8sO" secondAttribute="width" multiplier="0.2" id="tzb-T3-tzy"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VT5-D3-K9u">

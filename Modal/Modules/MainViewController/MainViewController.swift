@@ -74,20 +74,27 @@ class MainViewController: UIViewController {
         .disposed(by: bag)
         
         viewModel.filterViewModel.filtersSelected.bind(onNext: { [unowned self] filters in
+            self.viewModel.fetchData(sort: filters.first)
             self.currentFilterHeightConstraint.constant = (self.viewModel.filterViewModel.filtersSelected.value.isEmpty) ? 0 : 44
             self.view.layoutIfNeeded()
         }).disposed(by: bag)
         
         tableView.rx.itemSelected.bind { [unowned self] indexPath in
-            self.pushDetailsViewController(self.viewModel.data.value[indexPath.row])
+            self.pushDetailsViewController()
         }.disposed(by: bag)
         
         orderSegmentedControll.rx.selectedSegmentIndex.bind { [unowned self] index in
-            self.viewModel.filterViewModel.orderBy.accept(self.viewModel.filterViewModel.order.value[index])
+            let selectedOrder = self.viewModel.filterViewModel.order.value[index]
+            self.viewModel.fetchData(order: selectedOrder)
+            self.viewModel.filterViewModel.orderBy.accept(selectedOrder)
         }.disposed(by: bag)
+        
+        self.input.rx.controlEvent([.editingDidEnd]).asObservable().bind(onNext: { _ in
+            self.viewModel.fetchData(query: self.input.text ?? String())
+        }).disposed(by: bag)
     }
     
-    private func pushDetailsViewController(_ viewValue: Item) {
+    private func pushDetailsViewController() {
         let detailsViewController = DetailsViewController()
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
