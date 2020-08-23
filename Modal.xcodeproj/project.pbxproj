@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3907721F24F2B81F006CD74F /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907721E24F2B81F006CD74F /* Search.swift */; };
 		392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */; };
 		3947F07524F2183D001FDE57 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3947F07324F2183D001FDE57 /* ListTableViewCell.swift */; };
 		3947F07624F2183D001FDE57 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3947F07424F2183D001FDE57 /* ListTableViewCell.xib */; };
@@ -42,7 +43,6 @@
 		39512A2124EF55C9003A189F /* FilterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39512A1F24EF55C9003A189F /* FilterTableViewCell.xib */; };
 		395ED39824EB210D007FCF10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39724EB210D007FCF10 /* AppDelegate.swift */; };
 		395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39924EB210D007FCF10 /* SceneDelegate.swift */; };
-		395ED39C24EB210D007FCF10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED39B24EB210D007FCF10 /* ViewController.swift */; };
 		395ED3A124EB210E007FCF10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 395ED3A024EB210E007FCF10 /* Assets.xcassets */; };
 		395ED3A424EB210E007FCF10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 395ED3A224EB210E007FCF10 /* LaunchScreen.storyboard */; };
 		395ED3AF24EB210E007FCF10 /* ModalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 395ED3AE24EB210E007FCF10 /* ModalTests.swift */; };
@@ -85,6 +85,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3907721E24F2B81F006CD74F /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		3947F07324F2183D001FDE57 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		3947F07424F2183D001FDE57 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		395ED39424EB210D007FCF10 /* Modal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Modal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		395ED39724EB210D007FCF10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		395ED39924EB210D007FCF10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		395ED39B24EB210D007FCF10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		395ED3A024EB210E007FCF10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		395ED3A324EB210E007FCF10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		395ED3A524EB210E007FCF10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -181,6 +181,7 @@
 		3947F06E24F2018D001FDE57 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3907721E24F2B81F006CD74F /* Search.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -291,7 +292,6 @@
 		395ED38B24EB210D007FCF10 = {
 			isa = PBXGroup;
 			children = (
-				395129D624EEC406003A189F /* Main.storyboard */,
 				395ED39624EB210D007FCF10 /* Modal */,
 				395ED3AD24EB210E007FCF10 /* ModalTests */,
 				395ED3B824EB210E007FCF10 /* ModalUITests */,
@@ -313,6 +313,7 @@
 		395ED39624EB210D007FCF10 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				395129D624EEC406003A189F /* Main.storyboard */,
 				3947F06E24F2018D001FDE57 /* Model */,
 				39512A1024EF2D77003A189F /* Workers */,
 				39512A0724EF29CB003A189F /* Resources */,
@@ -320,7 +321,6 @@
 				39BDC61B24EB218C00DA3E44 /* Modules */,
 				395ED39724EB210D007FCF10 /* AppDelegate.swift */,
 				395ED39924EB210D007FCF10 /* SceneDelegate.swift */,
-				395ED39B24EB210D007FCF10 /* ViewController.swift */,
 				395ED3A024EB210E007FCF10 /* Assets.xcassets */,
 				395ED3A224EB210E007FCF10 /* LaunchScreen.storyboard */,
 				395ED3A524EB210E007FCF10 /* Info.plist */,
@@ -503,7 +503,6 @@
 				39512A1224EF2D8E003A189F /* GitHubWorker.swift in Sources */,
 				39512A1424EF2DB4003A189F /* RemoteWorker.swift in Sources */,
 				395129C524EDA1C4003A189F /* MainNavigationController.swift in Sources */,
-				395ED39C24EB210D007FCF10 /* ViewController.swift in Sources */,
 				395ED39824EB210D007FCF10 /* AppDelegate.swift in Sources */,
 				395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */,
 				395129FC24EEF58C003A189F /* FilterCollectionViewCell.swift in Sources */,
@@ -516,6 +515,7 @@
 				392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */,
 				395129F724EEF4F1003A189F /* FilterCollectionView.swift in Sources */,
 				395129DB24EEC804003A189F /* MainViewController.swift in Sources */,
+				3907721F24F2B81F006CD74F /* Search.swift in Sources */,
 				395129E924EED337003A189F /* MainViewModel.swift in Sources */,
 				39512A0624EF28EB003A189F /* String+Localizable.swift in Sources */,
 			);

@@ -30,6 +30,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+            tableView.rowHeight = 201
         }
     }
     @IBOutlet weak var currentFiltersCollectionView: FilterCollectionView! {
@@ -43,9 +44,6 @@ class MainViewController: UIViewController {
     private var cellIdentifier = "cell"
     private var viewModel = MainViewModel()
     
-    // TODO: Push data from network
-    var items = BehaviorRelay<[String]>(value: [])
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.topItem?.title = String.localize("main_view_title")
@@ -53,7 +51,6 @@ class MainViewController: UIViewController {
     }
     
     private func setup() {
-        prepareTableView()
         prepareObservables()
         prepareNavigationBar()
         
@@ -66,26 +63,15 @@ class MainViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: String.localize("main_view_filter_button"), style: .plain, target: self, action: #selector(openFilter))
     }
     
-    private func prepareTableView() {
-        tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
-    }
-
     private func prepareObservables() {
-        items.bind(to: tableView.rx.items) { [unowned self] table, index, element in
+        viewModel.data.bind(to: tableView.rx.items) { [unowned self] table, index, element in
             if let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? ListTableViewCell {
-                cell.title.text = element
-                let selectedView = UIView()
-                selectedView.backgroundColor = .clear
-                cell.selectedBackgroundView = selectedView
+                cell.setupCell(with: element)
                 return cell
             }
             return UITableViewCell(style: .default, reuseIdentifier: self.cellIdentifier)
         }
         .disposed(by: bag)
-        
-        viewModel.data.bind(onNext: { value in
-            self.items.accept(value)
-        }).disposed(by: bag)
         
         viewModel.filterViewModel.filtersSelected.bind(onNext: { [unowned self] filters in
             self.currentFilterHeightConstraint.constant = (self.viewModel.filterViewModel.filtersSelected.value.isEmpty) ? 0 : 44
@@ -93,7 +79,7 @@ class MainViewController: UIViewController {
         }).disposed(by: bag)
         
         tableView.rx.itemSelected.bind { [unowned self] indexPath in
-            self.pushDetailsViewController(self.items.value[indexPath.row])
+            self.pushDetailsViewController(self.viewModel.data.value[indexPath.row])
         }.disposed(by: bag)
         
         orderSegmentedControll.rx.selectedSegmentIndex.bind { [unowned self] index in
@@ -101,7 +87,7 @@ class MainViewController: UIViewController {
         }.disposed(by: bag)
     }
     
-    private func pushDetailsViewController(_ viewValue: String) {
+    private func pushDetailsViewController(_ viewValue: Item) {
         let detailsViewController = DetailsViewController()
         navigationController?.pushViewController(detailsViewController, animated: true)
     }

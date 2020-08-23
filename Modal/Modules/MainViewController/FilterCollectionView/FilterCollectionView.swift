@@ -17,7 +17,6 @@ class FilterCollectionView: UIView {
     
     private var bag = DisposeBag()
     private var cellIdentifier = "cell"
-    //var filters = BehaviorRelay<[Filter]>(value: [])
     var viewModel: MainViewModel?
     
     override init(frame: CGRect) {
@@ -40,6 +39,15 @@ class FilterCollectionView: UIView {
         viewModel?.filterViewModel.filtersSelected.bind(to: collectionView.rx.items(cellIdentifier: cellIdentifier, cellType: FilterCollectionViewCell.self)) { row, item, cell in
             cell.filterTitle?.text = item.describing
         }.disposed(by: bag)
+        
+        viewModel?.filterViewModel.filtersSelected.bind(to: collectionView.rx.items) { [unowned self] collectionView, index, item in
+            if let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: IndexPath(row: index, section: 0)) as? FilterCollectionViewCell {
+                cell.filterTitle?.text = item.describing
+                return cell
+            }
+            return UICollectionViewCell()
+        }
+        .disposed(by: bag)
         
         collectionView.rx.itemSelected.bind { [unowned self] indexPath in
             guard let viewModel = self.viewModel else { return }

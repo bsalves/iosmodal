@@ -17,7 +17,17 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cj2-33-9hl">
-                        <rect key="frame" x="20" y="10" width="268" height="21"/>
+                        <rect key="frame" x="20" y="10" width="236" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="X" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BNS-cS-vsz">
+                        <rect key="frame" x="276" y="10" width="12" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="12" id="GDS-dN-cAa"/>
+                            <constraint firstAttribute="height" constant="21" id="TFM-Hi-TXy"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -26,17 +36,20 @@
             </view>
             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="BNS-cS-vsz" secondAttribute="bottom" constant="9" id="1hN-yH-4xj"/>
                 <constraint firstAttribute="bottom" secondItem="Cj2-33-9hl" secondAttribute="bottom" constant="9" id="1ws-bw-H4t"/>
                 <constraint firstItem="Cj2-33-9hl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="60p-sZ-wjq"/>
+                <constraint firstItem="BNS-cS-vsz" firstAttribute="leading" secondItem="Cj2-33-9hl" secondAttribute="trailing" constant="20" id="U3M-eL-fkW"/>
+                <constraint firstItem="BNS-cS-vsz" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="ZpM-jG-zWI"/>
                 <constraint firstItem="Cj2-33-9hl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="jCg-rn-pL9"/>
-                <constraint firstAttribute="trailing" secondItem="Cj2-33-9hl" secondAttribute="trailing" constant="20" id="tMf-N7-Ax1"/>
+                <constraint firstAttribute="trailing" secondItem="BNS-cS-vsz" secondAttribute="trailing" constant="20" id="nrG-Yg-qKM"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="308" height="40"/>
             <connections>
                 <outlet property="filterTitle" destination="Cj2-33-9hl" id="g4K-BA-nb8"/>
             </connections>
-            <point key="canvasLocation" x="318.84057971014494" y="137.27678571428569"/>
+            <point key="canvasLocation" x="318.84057971014494" y="136.60714285714286"/>
         </collectionViewCell>
     </objects>
 </document>

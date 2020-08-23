@@ -13,13 +13,13 @@ extension MainViewController: UITextFieldDelegate {
         
         // Transfor in search trigger
         
-        textField.resignFirstResponder()
-        if let newText = textField.text {
-            var values = items.value
-            values.append(newText)
-            items.accept(values)
-            textField.text = nil
-        }
+//        textField.resignFirstResponder()
+//        if let newText = textField.text {
+//            var values = items.value
+//            values.append(newText)
+//            items.accept(values)
+//            textField.text = nil
+//        }
         return true
     }
 }

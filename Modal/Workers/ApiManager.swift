@@ -17,7 +17,8 @@ enum ApiError: String, Error {
 }
 
 enum ApiKey: String {
-    case gitList = "search/repositories?q={q}&sort={sort}&order={order}&per_page={per_page}&page={page}"
+    //case gitList = "search/repositories?q={q}&sort={sort}&order={order}&per_page={per_page}&page={page}"
+    case gitList = "search/repositories?q=iOS"
     case repositoryDetail = "repo_detail.json"
 }
 

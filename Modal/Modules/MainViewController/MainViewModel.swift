@@ -12,7 +12,9 @@ import RxSwift
 
 class MainViewModel {
     
-    private(set) var data = BehaviorRelay<[String]>(value: [])
+    private(set) var data = BehaviorRelay<[Item]>(value: [])
+    
+    lazy private var worker = GitHubWorker()
     
     var filters = BehaviorRelay<[Filter]>(value: [])
     
@@ -28,12 +30,11 @@ class MainViewModel {
     }
     
     func fetchData() {
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { [weak self] _ in
-            var items: [String] = []
-            for n in 1...3 {
-                items.append("item \(n)")
-            }
-            self?.data.accept(items)
+        
+        worker.fetch(success: { [weak self] search in
+            self?.data.accept(search.items)
+        }) { [weak self] failError in
+            self?.data.accept([])
         }
     }
     

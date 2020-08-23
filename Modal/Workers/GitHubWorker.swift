@@ -10,6 +10,17 @@ import Foundation
 
 class GitHubWorker {
     
-    
+    func fetch(success: @escaping (Search) -> Void, fail: @escaping (ApiError) -> Void ) {
+        ApiManager.shared.fetch(resource: .gitList, success: { (data) in
+            do {
+                let encodedData = try JSONDecoder().decode(Search.self, from: data)
+                success(encodedData)
+            } catch {
+                fail(.unknowReason)
+            }
+        }) { (error) in
+            fail(error)
+        }
+    }
     
 }
