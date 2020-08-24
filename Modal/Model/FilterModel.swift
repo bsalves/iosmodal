@@ -10,27 +10,27 @@ import Foundation
 
 enum Filter {
     case star
-    case followers
-    case date
+    case forks
+    case updated
     
     var describing: String {
         switch self {
         case .star:
             return String.localize("filter_star")
-        case .followers:
-            return String.localize("filter_followers")
-        case .date:
-            return String.localize("filter_date")
+        case .forks:
+            return String.localize("filter_forks")
+        case .updated:
+            return String.localize("filter_updated")
         }
     }
     
     var key: String {
         switch self {
         case .star:
-            return "star"
-        case .followers:
+            return "stars"
+        case .forks:
             return "forks"
-        case .date:
+        case .updated:
             return "updated"
         }
     }

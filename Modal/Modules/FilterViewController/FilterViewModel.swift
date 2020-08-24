@@ -22,7 +22,7 @@ class FilterViewModel {
     // MARK: - Computed properties
     
     var filters: BehaviorRelay<[Filter]> {
-        return BehaviorRelay(value: [.star, .followers, .date])
+        return BehaviorRelay(value: [.star, .forks, .updated])
     }
     
     var order: BehaviorRelay<[Sorting]> {

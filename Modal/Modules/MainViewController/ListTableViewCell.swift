@@ -18,6 +18,28 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var starsTitleLabel: UILabel! {
+        didSet {
+            starsTitleLabel.text = String.localize("list_tableviewcell_stars_title")
+        }
+    }
+    @IBOutlet weak var followersTitleLabel: UILabel! {
+        didSet {
+            followersTitleLabel.text = String.localize("list_tableviewcell_followers_title")
+        }
+    }
+    @IBOutlet weak var forksTitleLabel: UILabel! {
+        didSet {
+            forksTitleLabel.text = String.localize("list_tableviewcell_forks_title")
+        }
+    }
+    @IBOutlet weak var dateTitleLabel: UILabel! {
+        didSet {
+            dateTitleLabel.text = String.localize("list_tableviewcell_date_title")
+        }
+    }
+    
+    
     override func prepareForReuse() {
         super.layoutSubviews()
         self.avatarImage.image = nil

@@ -30,7 +30,7 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfo-iH-Hn9">
-                                        <rect key="frame" x="84" y="30" width="45" height="24"/>
+                                        <rect key="frame" x="84" y="30" width="334.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="thin" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -69,6 +69,7 @@
                                     <constraint firstAttribute="height" constant="84" id="XBf-en-5kY"/>
                                     <constraint firstItem="Cfo-iH-Hn9" firstAttribute="centerY" secondItem="jB8-bR-8sO" secondAttribute="centerY" id="blj-Fa-zNo"/>
                                     <constraint firstAttribute="bottom" secondItem="IcD-PD-KWc" secondAttribute="bottom" constant="17" id="eZ7-ng-7w0"/>
+                                    <constraint firstItem="Cfo-iH-Hn9" firstAttribute="width" secondItem="jB8-bR-8sO" secondAttribute="width" multiplier="0.5" id="gJg-P9-N6X"/>
                                     <constraint firstItem="IcD-PD-KWc" firstAttribute="leading" secondItem="jB8-bR-8sO" secondAttribute="leading" constant="17" id="rKN-nb-kjX"/>
                                 </constraints>
                             </view>
@@ -176,9 +177,13 @@
             <connections>
                 <outlet property="avatarImage" destination="IcD-PD-KWc" id="9aO-zf-KO6"/>
                 <outlet property="dateLabel" destination="3Cx-hS-xh4" id="UUT-ge-JhJ"/>
+                <outlet property="dateTitleLabel" destination="8YU-QC-40L" id="6G8-0x-on1"/>
                 <outlet property="followersLabel" destination="wXt-0a-7M1" id="V1V-mz-hXl"/>
+                <outlet property="followersTitleLabel" destination="lC1-dw-sgj" id="PPg-ge-bQA"/>
                 <outlet property="forksLabel" destination="fJC-9l-wJC" id="Ua3-Zm-h7Z"/>
+                <outlet property="forksTitleLabel" destination="2xm-i7-AXY" id="Pvd-kG-8Rb"/>
                 <outlet property="stars" destination="45o-n9-jBL" id="0pC-8H-OoY"/>
+                <outlet property="starsTitleLabel" destination="DO9-KH-qGi" id="GjM-Kw-q9s"/>
                 <outlet property="title" destination="Cfo-iH-Hn9" id="nJj-EC-6PP"/>
             </connections>
             <point key="canvasLocation" x="407.97101449275368" y="150.33482142857142"/>

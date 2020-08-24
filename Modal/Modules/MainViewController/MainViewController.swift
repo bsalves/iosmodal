@@ -31,6 +31,8 @@ class MainViewController: UIViewController {
         didSet {
             tableView.register(UINib(nibName: "ListTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
             tableView.rowHeight = 201
+            tableView.refreshControl = self.refreshControll
+            refreshControll.addTarget(self, action: #selector(self.updateList), for: .valueChanged)
         }
     }
     @IBOutlet weak var currentFiltersCollectionView: FilterCollectionView! {
@@ -40,14 +42,18 @@ class MainViewController: UIViewController {
     }
     @IBOutlet weak var currentFilterHeightConstraint: NSLayoutConstraint!
     
+    var refreshControll = UIRefreshControl()
+    
     private var bag = DisposeBag()
     private var cellIdentifier = "cell"
     private var viewModel = MainViewModel()
+    private var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.topItem?.title = String.localize("main_view_title")
         setup()
+        input.becomeFirstResponder()
     }
     
     private func setup() {
@@ -64,7 +70,11 @@ class MainViewController: UIViewController {
     }
     
     private func prepareObservables() {
+        self.isLoading = true
         viewModel.data.bind(to: tableView.rx.items) { [unowned self] table, index, element in
+            self.isLoading = false
+            self.tableView.isUserInteractionEnabled = true
+            self.refreshControll.endRefreshing()
             if let cell = self.tableView.dequeueReusableCell(withIdentifier: self.cellIdentifier) as? ListTableViewCell {
                 cell.setupCell(with: element)
                 return cell
@@ -83,6 +93,16 @@ class MainViewController: UIViewController {
             self.pushDetailsViewController()
         }.disposed(by: bag)
         
+        tableView.rx.contentOffset.bind(onNext: { point in
+            if !self.isLoading {
+                if self.tableView.isNearBottomEdge() && !self.isLoading {
+                    self.tableView.isUserInteractionEnabled = false
+                    self.loadNextPage()
+                }
+                self.isLoading = true
+            }
+        }).disposed(by: bag)
+        
         orderSegmentedControll.rx.selectedSegmentIndex.bind { [unowned self] index in
             let selectedOrder = self.viewModel.filterViewModel.order.value[index]
             self.viewModel.fetchData(order: selectedOrder)
@@ -92,6 +112,11 @@ class MainViewController: UIViewController {
         self.input.rx.controlEvent([.editingDidEnd]).asObservable().bind(onNext: { _ in
             self.viewModel.fetchData(query: self.input.text ?? String())
         }).disposed(by: bag)
+    }
+    
+    private func loadNextPage() {
+        self.isLoading = true
+        viewModel.nextPage()
     }
     
     private func pushDetailsViewController() {
@@ -104,5 +129,9 @@ class MainViewController: UIViewController {
         filterViewController.viewModel = viewModel.filterViewModel
         let filterNavigarionController = UINavigationController(rootViewController: filterViewController)
         present(filterNavigarionController, animated: true, completion: nil)
+    }
+    
+    @objc func updateList() {
+        viewModel.updateData()
     }
 }

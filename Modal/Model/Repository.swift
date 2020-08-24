@@ -16,11 +16,11 @@ struct Repository: Codable {
     let forksCount: Int?
     let stargazersCount: Int?
     let watchersCount: Int?
-    let createdAt: String?
+    let updatedAt: String?
     
     var createdDateTime: String {
         
-        guard let createdString = self.createdAt else { return String() }
+        guard let createdString = self.updatedAt else { return String() }
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -37,7 +37,7 @@ struct Repository: Codable {
         case forksCount = "forks_count"
         case stargazersCount = "stargazers_count"
         case watchersCount = "watchers_count"
-        case createdAt = "created_at"
+        case updatedAt = "updated_at"
     }
     
     

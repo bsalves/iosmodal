@@ -11,6 +11,10 @@
 "main_view_title" = "Git";
 "search_txt_field_placeholder" = "Search by name...";
 "main_view_filter_button" = "Filter";
+"list_tableviewcell_stars_title" = "Stars";
+"list_tableviewcell_followers_title" = "Followers";
+"list_tableviewcell_forks_title" = "Forks";
+"list_tableviewcell_date_title" = "Updated at";
 
 // MARK: - Filter View Controlller
 
@@ -20,8 +24,8 @@
 // MARK: - Filter Options
 
 "filter_star" = "Star";
-"filter_followers" = "Followers";
-"filter_date" = "Date";
+"filter_forks" = "Forks";
+"filter_updated" = "Updated";
 
 // MARK: - Sort Options
 
