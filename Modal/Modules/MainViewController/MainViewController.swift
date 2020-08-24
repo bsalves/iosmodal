@@ -90,7 +90,7 @@ class MainViewController: UIViewController {
         }).disposed(by: bag)
         
         tableView.rx.itemSelected.bind { [unowned self] indexPath in
-            self.pushDetailsViewController()
+            self.pushDetailsViewController(repoName: self.viewModel.data.value[indexPath.row].title)
         }.disposed(by: bag)
         
         tableView.rx.contentOffset.bind(onNext: { point in
@@ -119,8 +119,9 @@ class MainViewController: UIViewController {
         viewModel.nextPage()
     }
     
-    private func pushDetailsViewController() {
+    private func pushDetailsViewController(repoName: String) {
         let detailsViewController = DetailsViewController()
+        detailsViewController.viewModel = viewModel.detailsViewModel(repo: repoName)
         navigationController?.pushViewController(detailsViewController, animated: true)
     }
     

@@ -31,3 +31,9 @@
 
 "sort_asc" = "Ascending";
 "sort_desc" = "Descending";
+
+// MARK: - Details View
+
+"details_language_label" = "Language";
+"details_subscribers_label" = "Subscribers";
+"details_stars_label" = "Stars";

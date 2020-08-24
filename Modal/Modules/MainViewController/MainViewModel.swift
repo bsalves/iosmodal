@@ -65,6 +65,10 @@ class MainViewModel {
         }).disposed(by: bag)
     }
     
+    func detailsViewModel(repo: String) -> DetailsViewModel {
+        return DetailsViewModel(repo: repo)
+    }
+    
     private func performSearchFetch() {
         self.worker.fetchSearch(queryItems: self.queryItems.value, page: self.page, success: { [weak self] search in
             self?.totalOfItems = search.totalCount

@@ -31,3 +31,9 @@
 
 "sort_asc" = "Crescente";
 "sort_desc" = "Decrescente";
+
+// MARK: - Details View
+
+"details_language_label" = "Linguagem";
+"details_subscribers_label" = "Inscritos";
+"details_stars_label" = "Estrelas";

@@ -19,6 +19,7 @@ enum ApiError: String, Error {
 enum ApiKey: String {
     case repositoryList = "repositories"
     case repositorySearch = "search/repositories"
+    case repositoryDetails = "repos/"
 }
 
 class ApiManager {
@@ -27,9 +28,32 @@ class ApiManager {
     
     static let shared = ApiManager()
     
+    func fetch(resource: ApiKey, path: String, success: @escaping (Data) -> Void, failure: @escaping (ApiError) -> Void) {
+        do {
+            let url = try self.prepareUrl(resource, withPath: path)
+            let request = URLRequest(url: url)
+            
+            let task = URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
+                if (error != nil) {
+                    failure(ApiError(rawValue: error?.localizedDescription ?? "") ?? ApiError.serviceFailure)
+                    return
+                }
+                guard let data = data else {
+                    failure(.emptyData)
+                    return
+                }
+                success(data)
+            }
+            task.resume()
+        } catch let error as ApiError {
+            failure(error)
+        } catch {
+            failure(ApiError.unknowReason)
+        }
+    }
+    
     func fetch(resource: ApiKey, query: [URLQueryItem]?, success: @escaping (Data) -> Void, failure: @escaping (ApiError) -> Void) {
         do {
-            
             var urlComponent = try self.prepareUrl(resource)
             urlComponent.queryItems = query
             guard let url = urlComponent.url else {
@@ -55,6 +79,15 @@ class ApiManager {
             failure(error)
         } catch {
             failure(ApiError.unknowReason)
+        }
+    }
+    
+    private func prepareUrl(_ key: ApiKey, withPath: String) throws -> URL {
+        let baseUrl = "https://api.github.com/"
+        if let url = URL(string: baseUrl + key.rawValue + withPath) {
+            return url
+        } else {
+            throw ApiError.invalidKey
         }
     }
     

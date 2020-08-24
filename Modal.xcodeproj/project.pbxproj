@@ -11,6 +11,8 @@
 		3907722124F2E5E2006CD74F /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3907722024F2E5E2006CD74F /* Repository.swift */; };
 		392EDFFD24F02BE500CDE5E8 /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */; };
 		39372D2A24F3800700E74E96 /* UIScrollView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39372D2924F3800700E74E96 /* UIScrollView+Extension.swift */; };
+		39372D2C24F39AB900E74E96 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39372D2B24F39AB900E74E96 /* DetailsViewModel.swift */; };
+		39372D2E24F39C9400E74E96 /* RepositoryDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39372D2D24F39C9400E74E96 /* RepositoryDetails.swift */; };
 		3947F07524F2183D001FDE57 /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3947F07324F2183D001FDE57 /* ListTableViewCell.swift */; };
 		3947F07624F2183D001FDE57 /* ListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3947F07424F2183D001FDE57 /* ListTableViewCell.xib */; };
 		3947F07D24F225B8001FDE57 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3947F07724F225B8001FDE57 /* RxSwift.framework */; };
@@ -90,6 +92,8 @@
 		3907722024F2E5E2006CD74F /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
 		39372D2924F3800700E74E96 /* UIScrollView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extension.swift"; sourceTree = "<group>"; };
+		39372D2B24F39AB900E74E96 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		39372D2D24F39C9400E74E96 /* RepositoryDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetails.swift; sourceTree = "<group>"; };
 		3947F07324F2183D001FDE57 /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		3947F07424F2183D001FDE57 /* ListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListTableViewCell.xib; sourceTree = "<group>"; };
 		3947F07724F225B8001FDE57 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/RxSwift.framework; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				3907721E24F2B81F006CD74F /* Search.swift */,
 				3907722024F2E5E2006CD74F /* Repository.swift */,
 				392EDFFC24F02BE500CDE5E8 /* FilterModel.swift */,
+				39372D2D24F39C9400E74E96 /* RepositoryDetails.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,6 +243,7 @@
 			children = (
 				395129E424EECD7B003A189F /* DetailsViewController.swift */,
 				395129E524EECD7B003A189F /* DetailsViewController.xib */,
+				39372D2B24F39AB900E74E96 /* DetailsViewModel.swift */,
 			);
 			path = DetailsViewController;
 			sourceTree = "<group>";
@@ -509,10 +515,12 @@
 				395ED39A24EB210D007FCF10 /* SceneDelegate.swift in Sources */,
 				395129FC24EEF58C003A189F /* FilterCollectionViewCell.swift in Sources */,
 				39372D2A24F3800700E74E96 /* UIScrollView+Extension.swift in Sources */,
+				39372D2E24F39C9400E74E96 /* RepositoryDetails.swift in Sources */,
 				3947F07524F2183D001FDE57 /* ListTableViewCell.swift in Sources */,
 				39512A1624EF2E11003A189F /* ApiManager.swift in Sources */,
 				39512A2024EF55C9003A189F /* FilterTableViewCell.swift in Sources */,
 				395129E624EECD7B003A189F /* DetailsViewController.swift in Sources */,
+				39372D2C24F39AB900E74E96 /* DetailsViewModel.swift in Sources */,
 				395129EC24EED755003A189F /* Observables.swift in Sources */,
 				39512A1A24EF4C0A003A189F /* FilterViewController.swift in Sources */,
 				3907722124F2E5E2006CD74F /* Repository.swift in Sources */,

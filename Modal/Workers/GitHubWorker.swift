@@ -37,4 +37,17 @@ class GitHubWorker {
         }
     }
     
+    func fetchRepositoryDetails(repoName: String, success: @escaping (RepositoryDetails) -> Void, fail: @escaping (ApiError) -> Void ) {
+        ApiManager.shared.fetch(resource: .repositoryDetails, path: repoName, success: { data in
+            do {
+                let encodedData = try JSONDecoder().decode(RepositoryDetails.self, from: data)
+                success(encodedData)
+            } catch {
+                fail(.unknowReason)
+            }
+        }) { error in
+            fail(error)
+        }
+    }
+    
 }
