@@ -11,13 +11,13 @@ import RxCocoa
 import RxSwift
 
 class FilterViewController: UIViewController {
-    
+
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(UINib(nibName: "FilterTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
         }
     }
-    
+
     private var bag = DisposeBag()
     var viewModel: FilterViewModel?
 
@@ -27,7 +27,7 @@ class FilterViewController: UIViewController {
         prepareObservables()
         prepareNavigationBar()
     }
-    
+
     private func prepareObservables() {
         viewModel?.filters.bind(to: self.tableView.rx.items(cellIdentifier: "cell")) { row, item, cell in
             guard let viewModel = self.viewModel else { return }
@@ -38,7 +38,7 @@ class FilterViewController: UIViewController {
                 cell.accessoryType = .none
             }
         }.disposed(by: bag)
-        
+
         tableView.rx.itemSelected.bind { [unowned self] indexPath in
             guard let viewModel = self.viewModel else { return }
             if viewModel.filtersSelected.value.contains(viewModel.filters.value[indexPath.row]) {
@@ -57,17 +57,17 @@ class FilterViewController: UIViewController {
             }
         }.disposed(by: bag)
     }
-    
+
     private func prepareNavigationBar() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: String.localize("search_view_controller_clear_filter"), style: .done, target: self, action: #selector(clearFilters))
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(close))
     }
-    
+
     @objc private func clearFilters() {
         self.viewModel?.filtersSelected.accept([])
         tableView.reloadData()
     }
-    
+
     @objc private func close() {
         self.dismiss(animated: true, completion: nil)
     }

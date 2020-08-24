@@ -12,10 +12,7 @@ class MainNavigationController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let initialViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         self.setViewControllers([initialViewController], animated: false)
     }
-
-
 }
