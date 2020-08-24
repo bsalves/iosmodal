@@ -9,7 +9,7 @@
 import Foundation
 
 class GitHubWorker {
-    
+
     func fetchListRepositories(success: @escaping ([Repository]) -> Void, fail: @escaping (ApiError) -> Void ) {
         ApiManager.shared.fetch(resource: .repositoryList, query: nil, success: { (data) in
             do {
@@ -18,13 +18,13 @@ class GitHubWorker {
             } catch {
                 fail(.unknowReason)
             }
-        }) { (error) in
+        }) { error in
             fail(error)
         }
     }
-    
+
     func fetchSearch(queryItems: [URLQueryItem], page: Int, success: @escaping (Search) -> Void, fail: @escaping (ApiError) -> Void ) {
-        
+
         ApiManager.shared.fetch(resource: .repositorySearch, query: queryItems, success: { (data) in
             do {
                 let encodedData = try JSONDecoder().decode(Search.self, from: data)
@@ -32,11 +32,11 @@ class GitHubWorker {
             } catch {
                 fail(.unknowReason)
             }
-        }) { (error) in
+        }) { error in
             fail(error)
         }
     }
-    
+
     func fetchRepositoryDetails(repoName: String, success: @escaping (RepositoryDetails) -> Void, fail: @escaping (ApiError) -> Void ) {
         ApiManager.shared.fetch(resource: .repositoryDetails, path: repoName, success: { data in
             do {
@@ -49,5 +49,4 @@ class GitHubWorker {
             fail(error)
         }
     }
-    
 }

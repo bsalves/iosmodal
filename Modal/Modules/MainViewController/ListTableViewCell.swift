@@ -13,11 +13,9 @@ class ListTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var stars: UILabel!
-    
     @IBOutlet weak var followersLabel: UILabel!
     @IBOutlet weak var forksLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var starsTitleLabel: UILabel! {
         didSet {
             starsTitleLabel.text = String.localize("list_tableviewcell_stars_title")
@@ -38,24 +36,23 @@ class ListTableViewCell: UITableViewCell {
             dateTitleLabel.text = String.localize("list_tableviewcell_date_title")
         }
     }
-    
-    
+
     override func prepareForReuse() {
         super.layoutSubviews()
         self.avatarImage.image = nil
     }
-    
+
     func setupCell(with item: MainViewModel.MainViewItem) {
         self.title.text = item.title
         let selectedView = UIView()
         selectedView.backgroundColor = .clear
         self.selectedBackgroundView = selectedView
-        
+
         self.followersLabel.text = item.followers
         self.forksLabel.text = item.forks
         self.dateLabel.text = item.date
         self.stars.text = item.stars
-        
+
         DispatchQueue.global().async {
             guard let url = URL(string: item.imageUrl) else { return }
             let imageData = try? NSData(contentsOf: url, options: .dataReadingMapped) as Data

@@ -23,16 +23,16 @@ enum ApiKey: String {
 }
 
 class ApiManager {
-    
+
     private init() { /* makes constructor private */ }
-    
+
     static let shared = ApiManager()
-    
+
     func fetch(resource: ApiKey, path: String, success: @escaping (Data) -> Void, failure: @escaping (ApiError) -> Void) {
         do {
             let url = try self.prepareUrl(resource, withPath: path)
             let request = URLRequest(url: url)
-            
+
             let task = URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
                 if (error != nil) {
                     failure(ApiError(rawValue: error?.localizedDescription ?? "") ?? ApiError.serviceFailure)
@@ -51,7 +51,7 @@ class ApiManager {
             failure(ApiError.unknowReason)
         }
     }
-    
+
     func fetch(resource: ApiKey, query: [URLQueryItem]?, success: @escaping (Data) -> Void, failure: @escaping (ApiError) -> Void) {
         do {
             var urlComponent = try self.prepareUrl(resource)
@@ -60,9 +60,9 @@ class ApiManager {
                 failure(.unknowReason)
                 return
             }
-            
+
             let request = URLRequest(url: url)
-            
+
             let task = URLSession.shared.dataTask(with: request) { (data, urlResponse, error) in
                 if (error != nil) {
                     failure(ApiError(rawValue: error?.localizedDescription ?? "") ?? ApiError.serviceFailure)
@@ -81,7 +81,7 @@ class ApiManager {
             failure(ApiError.unknowReason)
         }
     }
-    
+
     private func prepareUrl(_ key: ApiKey, withPath: String) throws -> URL {
         let baseUrl = "https://api.github.com/"
         if let url = URL(string: baseUrl + key.rawValue + withPath) {
@@ -90,7 +90,7 @@ class ApiManager {
             throw ApiError.invalidKey
         }
     }
-    
+
     private func prepareUrl(_ key: ApiKey) throws -> URLComponents {
         let baseUrl = "https://api.github.com/"
         if let url = URLComponents(string: baseUrl + key.rawValue) {

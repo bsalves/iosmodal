@@ -12,7 +12,7 @@ enum Filter {
     case star
     case forks
     case updated
-    
+
     var describing: String {
         switch self {
         case .star:
@@ -23,7 +23,7 @@ enum Filter {
             return String.localize("filter_updated")
         }
     }
-    
+
     var key: String {
         switch self {
         case .star:
@@ -39,7 +39,7 @@ enum Filter {
 enum Sorting {
     case ascending
     case descending
-    
+
     var describing: String {
         switch self {
         case .ascending:
@@ -48,7 +48,7 @@ enum Sorting {
             return String.localize("sort_desc")
         }
     }
-    
+
     var key: String {
         switch self {
         case .ascending:
@@ -60,19 +60,19 @@ enum Sorting {
 }
 
 struct FilterModel {
-    
+
     private var filter: Filter
     private var sort: Sorting
-    
+
     init(filter: Filter, orderBy: Sorting) {
         self.filter = filter
         self.sort = orderBy
     }
-    
+
     var filterName: String {
         return filter.describing
     }
-    
+
     var sorName: String {
         return sort.describing
     }

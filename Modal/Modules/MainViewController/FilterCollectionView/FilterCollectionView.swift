@@ -14,11 +14,11 @@ class FilterCollectionView: UIView {
 
     @IBOutlet var containerView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
     private var bag = DisposeBag()
     private var cellIdentifier = "cell"
     var viewModel: MainViewModel?
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         nibSetup()
@@ -28,18 +28,18 @@ class FilterCollectionView: UIView {
         super.init(coder: coder)
         nibSetup()
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.register(UINib(nibName: String(describing: FilterCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: cellIdentifier)
         prepareObservables()
     }
-    
+
     private func prepareObservables() {
         viewModel?.filterViewModel.filtersSelected.bind(to: collectionView.rx.items(cellIdentifier: cellIdentifier, cellType: FilterCollectionViewCell.self)) { row, item, cell in
             cell.filterTitle?.text = item.describing
         }.disposed(by: bag)
-        
+
         viewModel?.filterViewModel.filtersSelected.bind(to: collectionView.rx.items) { [unowned self] collectionView, index, item in
             if let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: self.cellIdentifier, for: IndexPath(row: index, section: 0)) as? FilterCollectionViewCell {
                 cell.filterTitle?.text = item.describing
@@ -48,7 +48,7 @@ class FilterCollectionView: UIView {
             return UICollectionViewCell()
         }
         .disposed(by: bag)
-        
+
         collectionView.rx.itemSelected.bind { [unowned self] indexPath in
             guard let viewModel = self.viewModel else { return }
             var newFilters = viewModel.filterViewModel.filtersSelected.value
@@ -56,7 +56,7 @@ class FilterCollectionView: UIView {
             self.viewModel?.filterViewModel.filtersSelected.accept(newFilters)
         }.disposed(by: bag)
     }
-    
+
     private func nibSetup() {
         containerView = loadViewFromNib()
         containerView.frame = bounds
@@ -71,5 +71,4 @@ class FilterCollectionView: UIView {
         let nibView = nib.instantiate(withOwner: self, options: nil).first as? UIView ?? UIView()
         return nibView
     }
-
 }

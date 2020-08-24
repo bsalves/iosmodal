@@ -11,18 +11,17 @@ import RxCocoa
 import RxSwift
 
 class MainViewModel {
-    
+
     var filterViewModel: FilterViewModel!
     private var bag = DisposeBag()
-    
     private(set) var data = BehaviorRelay<[MainViewModel.MainViewItem]>(value: [])
-    
+
     lazy private var worker = GitHubWorker()
-    
+
     var filters = BehaviorRelay<[Filter]>(value: [])
-    
+
     var queryItems = BehaviorRelay<[URLQueryItem]>(value: [URLQueryItem(name: "per_page", value: "10")])
-    
+
     private var totalOfItems: Int = 0 {
         didSet {
             let totalOfPages = Int(totalOfItems/10)
@@ -32,11 +31,11 @@ class MainViewModel {
         }
     }
     private var page: Int = 1
-    
+
     struct MainViewItem {
         var title: String { return item.fullName }
         var stars: String {
-            guard let stars = item.stargazersCount else  { return String() }
+            guard let stars = item.stargazersCount else { return String() }
             return String(stars)
         }
         var followers: String {
@@ -46,29 +45,28 @@ class MainViewModel {
         var forks: String {
             guard let forks = item.forksCount else { return String() }
             return String(forks)
-            
         }
         var date: String { return item.createdDateTime }
         var imageUrl: String { return item.owner.avatarURL }
-        
+
         private(set) var item: Repository
-        
+
         init(item: Repository) {
             self.item = item
         }
     }
-    
+
     init() {
         self.filterViewModel = FilterViewModel(filter: self.filters.value)
         filterViewModel?.filtersSelected.bind(onNext: { [unowned self] filter in
             self.filters.accept(filter)
         }).disposed(by: bag)
     }
-    
+
     func detailsViewModel(repo: String) -> DetailsViewModel {
         return DetailsViewModel(repo: repo)
     }
-    
+
     private func performSearchFetch() {
         self.worker.fetchSearch(queryItems: self.queryItems.value, page: self.page, success: { [weak self] search in
             self?.totalOfItems = search.totalCount
@@ -77,57 +75,57 @@ class MainViewModel {
                 viewItems.append(MainViewItem(item: item))
             }
             self?.data.accept(viewItems)
-        }) { [weak self] error in
+        }) { [weak self] _ in
             self?.data.accept([])
         }
     }
-    
+
     func fetchData(query: String) {
         self.page = 1
         self.data.accept([])
         let searchTerm = URLQueryItem(name: "q", value: query)
-        var q = queryItems.value
-        q.removeAll { $0.name == "q" }
-        q.append(searchTerm)
-        self.queryItems.accept(q)
+        var query = queryItems.value
+        query.removeAll { $0.name == "q" }
+        query.append(searchTerm)
+        self.queryItems.accept(query)
         performSearchFetch()
     }
-    
+
     func fetchData(sort: Filter?) {
         self.page = 1
         self.data.accept([])
-        var q = queryItems.value
-        q.removeAll { $0.name == "sort" }
+        var query = queryItems.value
+        query.removeAll { $0.name == "sort" }
         if let sort = sort?.key {
             let searchTerm = URLQueryItem(name: "sort", value: sort)
-            q.append(searchTerm)
+            query.append(searchTerm)
         }
-        self.queryItems.accept(q)
+        self.queryItems.accept(query)
         performSearchFetch()
     }
-    
+
     func fetchData(order: Sorting) {
         self.page = 1
         self.data.accept([])
         let searchTerm = URLQueryItem(name: "order", value: order.key)
-        var q = queryItems.value
-        q.removeAll { $0.name == "order" }
-        q.append(searchTerm)
-        self.queryItems.accept(q)
+        var query = queryItems.value
+        query.removeAll { $0.name == "order" }
+        query.append(searchTerm)
+        self.queryItems.accept(query)
         performSearchFetch()
     }
-    
+
     func updateData() {
         self.page = 1
         performSearchFetch()
     }
-    
+
     func nextPage() {
         let searchTerm = URLQueryItem(name: "page", value: String(self.page))
-        var q = queryItems.value
-        q.removeAll { $0.name == "page" }
-        q.append(searchTerm)
-        self.queryItems.accept(q)
+        var query = queryItems.value
+        query.removeAll { $0.name == "page" }
+        query.append(searchTerm)
+        self.queryItems.accept(query)
         self.worker.fetchSearch(queryItems: self.queryItems.value, page: self.page, success: { [weak self] search in
             self?.totalOfItems = search.totalCount
             var viewItems: [MainViewItem] = self?.data.value ?? []
@@ -135,9 +133,8 @@ class MainViewModel {
                 viewItems.append(MainViewItem(item: item))
             }
             self?.data.accept(viewItems)
-        }) { [weak self] error in
+        }) { [weak self] _ in
             self?.data.accept([])
         }
     }
-    
 }

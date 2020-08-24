@@ -17,11 +17,11 @@ struct Repository: Codable {
     let stargazersCount: Int?
     let watchersCount: Int?
     let updatedAt: String?
-    
+
     var createdDateTime: String {
-        
+
         guard let createdString = self.updatedAt else { return String() }
-        
+
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let date = dateFormatter.date(from: createdString) ?? Date()
@@ -39,8 +39,7 @@ struct Repository: Codable {
         case watchersCount = "watchers_count"
         case updatedAt = "updated_at"
     }
-    
-    
+
     // MARK: - Owner
     struct Owner: Codable {
         let avatarURL: String
@@ -50,7 +49,3 @@ struct Repository: Codable {
         }
     }
 }
-
-
-
-

@@ -11,10 +11,5 @@ import UIKit
 class FilterCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var filterTitle: UILabel?
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
 }
